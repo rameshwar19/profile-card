@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile Card</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        .profile-card {
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(44, 62, 80, 0.2);
+            padding: 2.5rem 2rem 2rem 2rem;
+            max-width: 350px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            transition: box-shadow 0.3s;
+        }
+        .profile-card:hover {
+            box-shadow: 0 16px 48px rgba(44, 62, 80, 0.3);
+        }
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #667eea;
+            margin-top: -70px;
+            background: #fff;
+        }
+        .profile-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 1rem 0 0.2rem 0;
+            color: #333;
+        }
+        .profile-title {
+            font-size: 1rem;
+            color: #764ba2;
+            margin-bottom: 0.7rem;
+        }
+        .profile-desc {
+            font-size: 0.98rem;
+            color: #555;
+            margin-bottom: 1.2rem;
+        }
+        .profile-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1.2rem;
+        }
+        .profile-social a {
+            color: #667eea;
+            font-size: 1.3rem;
+            transition: color 0.2s;
+        }
+        .profile-social a:hover {
+            color: #764ba2;
+        }
+        .follow-btn {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            padding: 0.7rem 2.2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            outline: none;
+        }
+        .follow-btn.following {
+            background: #e0e0e0;
+            color: #764ba2;
+        }
+        .follow-btn:active {
+            transform: scale(0.97);
+        }
+        @media (max-width: 400px) {
+            .profile-card {
+                padding: 1.5rem 0.5rem 1rem 0.5rem;
+            }
+        }
+    </style>
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div class="profile-card">
+        <img class="profile-img" src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profile Picture">
+        <div class="profile-name" id="profileName">Alex Johnson</div>
+        <div class="profile-title" id="profileTitle">Full Stack Developer</div>
+        <div class="profile-desc" id="profileDesc">
+            Passionate about building scalable web apps and beautiful user experiences. Loves JavaScript, React, and Node.js.
+        </div>
+        <div class="profile-social">
+            <a href="https://github.com/" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://twitter.com/" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <button class="follow-btn" id="followBtn">Follow</button>
+    </div>
+    <script>
+        // Toggle follow button state
+        const followBtn = document.getElementById('followBtn');
+        let following = false;
+        followBtn.addEventListener('click', function() {
+            following = !following;
+            if (following) {
+                followBtn.textContent = 'Following';
+                followBtn.classList.add('following');
+            } else {
+                followBtn.textContent = 'Follow';
+                followBtn.classList.remove('following');
+            }
+        });
+
+        // Example: Dynamic profile data (could be fetched from API)
+        // const profileData = {
+        //     name: "Jane Doe",
+        //     title: "UI/UX Designer",
+        //     desc: "Designing delightful digital experiences. Figma, Sketch, and Adobe XD enthusiast.",
+        //     img: "https://randomuser.me/api/portraits/women/44.jpg"
+        // };
+        // document.getElementById('profileName').textContent = profileData.name;
+        // document.getElementById('profileTitle').textContent = profileData.title;
+        // document.getElementById('profileDesc').textContent = profileData.desc;
+        // document.querySelector('.profile-img').src = profileData.img;
+    </script>
+</body>
+</html>
